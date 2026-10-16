@@ -1,0 +1,8 @@
+# 开发用覆盖层：直接把本地源码插进配置树（不经过 dsh plugin add）。
+# 注意：插件路径必须是绝对路径，patch 不改变 loader 的解析目录。
+#
+# 用法：
+#   dsh web --patch G:\test\start_up\dsh-mo-startup-screen\cordis.dev.yml
+- insert:
+    - id: dsh-mo-startup-screen
+      name: 'G:/test/start_up/dsh-mo-startup-screen/lib/index.js'

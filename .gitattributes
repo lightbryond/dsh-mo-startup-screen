@@ -1,0 +1,9 @@
+# 仓库内文本统一 LF 行尾，避免跨平台 CRLF 噪音
+* text=auto eol=lf
+# 二进制资源不做行尾转换
+*.wav  binary
+*.mp3  binary
+*.webp binary
+*.png  binary
+*.jpg  binary
+*.ico  binary

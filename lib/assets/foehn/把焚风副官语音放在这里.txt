@@ -1,0 +1,9 @@
+焚风反抗军（foehn）副官语音占位目录。
+
+把用你自己的语音生成模型产出的 .wav 文件放进本目录即可生效，无需重启 DSH、无需改代码
+（刷新页面后 Host 按 mtime 重新下发）。
+
+槽位清单与每句推荐台词见插件根目录的 AUDIO.md。
+本阵营槽位：intro.wav / signal.wav / volknet.wav / sync.wav / nano.wav / winds.wav / finale.wav（终幕，可选）
+
+素材缺失的槽位会自动回落到系统 TTS（或静默），不影响动画播放。

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>开屏动画预览 · 心灵终结</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  独立预览页：不依赖 DSH，直接用浏览器打开本文件即可预览四个阵营的开屏动画。
+  语音素材走 /dsh-mo-startup/asset/ 路由，file:// 下取不到会自动回落 TTS / 静默。
+  支持 URL 参数：?faction=soviet&mode=always  等。
+-->
+<link rel="stylesheet" href="../lib/splash.css">
+<style>
+  body { margin: 0; background: #0b0e14; color: #aab4c8; font-family: "Segoe UI", "Microsoft YaHei", sans-serif; }
+  #toolbar {
+    position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%);
+    display: flex; gap: 10px; align-items: center;
+    background: rgba(16, 20, 30, 0.92); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 10px 16px; z-index: 10;
+    font-size: 13px;
+  }
+  #toolbar button {
+    border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #dbe4f5;
+    border-radius: 8px; padding: 7px 14px; cursor: pointer; font-size: 13px;
+  }
+  #toolbar button:hover { border-color: #4da3ff; }
+  #toolbar .tip { color: #5d6a82; font-size: 11px; margin-left: 8px; }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span>阵营：</span>
+  <button data-f="allied">同盟国联军</button>
+  <button data-f="soviet">苏维埃联盟</button>
+  <button data-f="epsilon">厄普西隆军</button>
+  <button data-f="foehn">焚风反抗军</button>
+  <button id="replay">↻ 重播</button>
+  <span class="tip">播放中可按 Esc 跳过</span>
+</div>
+
+<script>
+  /* 预览配置：读 URL 参数覆盖 */
+  var q = new URLSearchParams(location.search)
+  window.__DSH_MO_STARTUP__ = {
+    enabled: true,
+    mode: 'always',
+    faction: q.get('faction') || 'allied',
+    commander: q.get('commander') || '',
+    speed: Number(q.get('speed')) || 1,
+    requireInteraction: q.get('auto') !== '1',
+    allowSkip: true,
+    sound: true,
+    soundVolume: 0.5,
+    voice: q.get('mute') !== '1',
+    voiceSource: 'asset',   /* file:// 下素材取不到会自动回落 TTS */
+    voiceVolume: 0.9,
+    voiceCue: true,
+    voiceLead: 240,
+    voiceRate: 0.9,
+    voicePitch: 0.9,
+    voiceLang: 'zh'
+  }
+</script>
+<script defer src="../lib/splash.js"></script>
+<script>
+  document.querySelectorAll('#toolbar [data-f]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      window.__DSH_MO_STARTUP__.faction = btn.dataset.f
+      window.__DSH_MO_STARTUP_API__ && window.__DSH_MO_STARTUP_API__.replay()
+    })
+  })
+  document.getElementById('replay').addEventListener('click', function () {
+    window.__DSH_MO_STARTUP_API__ && window.__DSH_MO_STARTUP_API__.replay()
+  })
+</script>
+
+</body>
+</html>

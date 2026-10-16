@@ -1,0 +1,51 @@
+{
+  "name": "dsh-mo-startup-screen",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness 开屏动画插件 · 《红色警戒2：心灵终结》主题。同盟国联军 / 苏维埃联盟 / 厄普西隆军 / 焚风反抗军 四阵营独立开屏序列，副官语音 .wav 占位，设置页可切换阵营与指挥官身份。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "startup",
+    "splash",
+    "boot-animation",
+    "mental-omega",
+    "red-alert-2"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "dev",
+    "test",
+    "preview/index.html",
+    "cordis.patch.yml",
+    "cordis.dev.yml",
+    "README.md",
+    "AUDIO.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/smoke.mjs"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings"
+      ],
+      "platform": "web"
+    }
+  }
+}
