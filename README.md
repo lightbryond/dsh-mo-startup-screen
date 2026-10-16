@@ -120,7 +120,7 @@ node dev/mount-desktop.mjs --profile web  # 想挂到别的 profile
 dsh web --patch /path/to/dsh-mo-startup-screen/cordis.dev.yml
 ```
 
-或者干脆不用 DSH，直接跑内置测试台（见 [本地调试工具](#本地调试工具)）。
+或者干脆不用 DSH，直接跑内置测试台。
 
 ---
 
