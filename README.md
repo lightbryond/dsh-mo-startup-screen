@@ -81,13 +81,13 @@ Four factions, four independently designed startup sequences.
 
 ```sh
 # 从 GitHub 安装
-dsh plugin --profile web add github:<owner>/dsh-mo-startup-screen
+dsh plugin --profile web add github:lightbryond/dsh-mo-startup-screen
 
 # 桌面端请用 desktop profile
-dsh plugin --profile desktop add github:<owner>/dsh-mo-startup-screen
+dsh plugin --profile desktop add github:lightbryond/dsh-mo-startup-screen
 
 # 本地目录
-dsh plugin --profile web add /path/to/dsh-mo-startup-screen
+dsh plugin --profile web add dsh-mo-startup-screen
 ```
 
 装完**重启 dsh web（或完全退出桌面端再启动）**，刷新页面即可看到开屏动画；
